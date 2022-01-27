@@ -10,12 +10,14 @@ class registerUserForm(UserCreationForm):
 
     class Meta:
         model = User
-        field = ("username", "email", "password1", "password2")
+        fields = ("username", "email", "password1", "password2")
 
     def save(self, commit=True):
         # commit = False, Returns a model object which we then add our own fields to after before commiting to database
-        # Grabs the email from the form, along with 
+        # super() Grabs all of the data from the class in our MRO (UserCreationForm). 
+        # This does not include email, so we have to add it after
         user = super(registerUserForm, self).save(commit=False)
+        # self is referring to our form object so  we access it's cleaned data attribute for 'email'
         user.email = self.cleaned_data['email']
         # Here we save the created user object after adding the email data
         if commit:

@@ -4,5 +4,5 @@ from . import views
 
 # This will all stem off our home path '/'
 urlpatterns = [
-    path('', views.Register, name="registerView" )
+    path('', views.registerUser, name="registerView" )
 ]
