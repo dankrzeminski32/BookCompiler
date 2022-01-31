@@ -4,5 +4,6 @@ from . import views
 
 # This will all stem off our home path '/'
 urlpatterns = [
-    path('register/', views.registerUser, name="registerView" )
+    path('register/', views.registerUser, name="registerView" ),
+    path('login/',views.loginUser, name="loginView")
 ]
