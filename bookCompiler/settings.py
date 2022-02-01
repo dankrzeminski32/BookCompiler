@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'userManagement.apps.UsermanagementConfig',
+    'bookDashboard.apps.BookdashboardConfig',
     'crispy_forms'
 ]
 
