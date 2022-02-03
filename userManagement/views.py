@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import registerUserForm
+from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate #add this
@@ -12,7 +13,7 @@ def registerUser(request):
         form = registerUserForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse("<h1>YOU SUCCESSFULLY REGISTERED</h1>")
+            return redirect('loginView')
     else:
         form = registerUserForm()
     return render(request, 'userManagement/register.html', {'form': form})
@@ -27,7 +28,7 @@ def loginUser(request):
             if user is not None:
                 login(request,user)
                 #redirect and messages.info
-                return HttpResponse(f"Successfully logged in as{username}")
+                return redirect("home")
             else:
                 # messages.error invalid username or password (remove http response)
                 return HttpResponse("Invalid username or password")
@@ -36,3 +37,7 @@ def loginUser(request):
             return HttpResponse("Invalid username or password")
     form = AuthenticationForm()
     return render(request = request, template_name = "userManagement/login.html", context = {"login_form": form})
+
+def logoutUser(request):
+    logout(request)
+    return redirect('registerView')
