@@ -21,3 +21,4 @@ The purpose of this app is to help you compile all your thoughts after reading b
   - [] top 3
   - [] public/private compilations
   - [] wish list books
+  - [] database of quotes about books + arrows
