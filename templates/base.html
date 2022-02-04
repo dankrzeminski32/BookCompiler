@@ -70,16 +70,27 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#!">Contact</a>
                         </li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item mb-2 mb-lg-0 mx-lg-3">
+                            <form action="" style="display: inline">
+                                <button type="submit" class="btn btn-warning">
+                                    Add new book
+                                    <b>+</b>
+                                </button>
+                            </form>
+                        </li>
+                        {% else %}
                         <li class="nav-item mb-2 mb-lg-0 mx-lg-3">
                             <form
                                 action="{% url 'registerView' %}"
                                 style="display: inline"
                             >
-                                <button type="submit" class="btn btn-warning">
-                                    Sign-up
+                                <button type="submit" class="btn btn-primary">
+                                    Sign up
                                 </button>
                             </form>
                         </li>
+                        {% endif %}
                         <li class="nav-item ml-lg-1">
                             {%if user.is_authenticated %}
                             <form
