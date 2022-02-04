@@ -40,4 +40,4 @@ def loginUser(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect('registerView')
+    return redirect('home')

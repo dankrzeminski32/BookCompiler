@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'userManagement.apps.UsermanagementConfig',
     'bookDashboard.apps.BookdashboardConfig',
-    'abstract.apps.AbstractConfig'
+    'abstract.apps.AbstractConfig',
     'crispy_forms'
 ]
 

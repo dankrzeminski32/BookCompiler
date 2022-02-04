@@ -14,13 +14,19 @@
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"
         />
+        {% load static %}
         <title>{% block title %}Book Compiler{% endblock %}</title>
         <style>
             @import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap");
 
+            body {
+                background-color: #fbfbfb;
+            }
+
             #logo {
                 font-family: "Mochiy Pop P One", sans-serif;
-                color: #0d6efd;
+                color: #fbfbfb;
+                font-size: 2rem;
             }
             a {
                 text-decoration: none;
@@ -28,73 +34,83 @@
         </style>
     </head>
     <body>
-        <div class="container">
-            <header
-                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
-            >
-                <a href="#"><h1 id="logo">bookCompiler</h1></a>
-
-                <ul
-                    class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0"
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-5">
+                <a class="navbar-brand" id="logo" href="{% url 'home' %}"
+                    >bookCompiler</a
                 >
-                    <li>
-                        <a href="#" class="nav-link px-2 link-secondary"
-                            >Home</a
-                        >
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-2 link-dark">Features</a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-2 link-dark"
-                            >Community</a
-                        >
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-2 link-dark">FAQs</a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-2 link-dark">About</a>
-                    </li>
-                </ul>
-
-                <div class="col-md-3 text-end">
-                    {%if user.is_authenticated %}
-                    <form
-                        action="{% url 'logoutView' %}"
-                        style="display: inline"
-                    >
-                        <button
-                            type="submit"
-                            class="btn btn-outline-primary me-2"
-                        >
-                            Logout
-                        </button>
-                    </form>
-                    {% else %}
-                    <form
-                        action="{% url 'loginView' %}"
-                        style="display: inline"
-                    >
-                        <button
-                            type="submit"
-                            class="btn btn-outline-primary me-2"
-                        >
-                            Login
-                        </button>
-                    </form>
-                    {% endif %}
-                    <form
-                        action="{% url 'registerView' %}"
-                        style="display: inline"
-                    >
-                        <button type="submit" class="btn btn-primary">
-                            Sign-up
-                        </button>
-                    </form>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div
+                    class="collapse navbar-collapse"
+                    id="navbarSupportedContent"
+                >
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="{% url 'home' %}"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!">Contact</a>
+                        </li>
+                        <li class="nav-item mb-2 mb-lg-0 mx-lg-3">
+                            <form
+                                action="{% url 'registerView' %}"
+                                style="display: inline"
+                            >
+                                <button type="submit" class="btn btn-warning">
+                                    Sign-up
+                                </button>
+                            </form>
+                        </li>
+                        <li class="nav-item ml-lg-1">
+                            {%if user.is_authenticated %}
+                            <form
+                                action="{% url 'logoutView' %}"
+                                style="display: inline"
+                            >
+                                <button
+                                    type="submit"
+                                    class="btn btn-outline-danger me-2"
+                                >
+                                    Logout
+                                </button>
+                            </form>
+                            {% else %}
+                            <form
+                                action="{% url 'loginView' %}"
+                                style="display: inline"
+                            >
+                                <button
+                                    type="submit"
+                                    class="btn btn-outline-success me-2"
+                                >
+                                    Login
+                                </button>
+                            </form>
+                            {% endif %}
+                        </li>
+                    </ul>
                 </div>
-            </header>
-        </div>
+            </div>
+        </nav>
 
         {% block content %} {% endblock %}
         <script
