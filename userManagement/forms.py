@@ -11,6 +11,13 @@ class registerUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ("username", "email", "password1", "password2")
+        help_texts = {
+            'username': None,
+            'email': None,
+            'password1': None,
+            'password2': None
+        }
+
 
     def save(self, commit=True):
         # commit = False, Returns a model object which we then add our own fields to after before commiting to database
@@ -23,13 +30,3 @@ class registerUserForm(UserCreationForm):
         if commit:
             user.save()
         return user
-
-# class loginForm(AuthenticationForm):
-#     username = forms.CharField(required=True,max_length=100,widget=forms.TextInput(attrs={'placeholder': 'Username','class': 'form-control'}))
-#     password = forms.CharField(max_length=50, required=True, widget=forms.PasswordInput(attrs={'placeholder': 'Password', 'class': 'form-control', 'data-toggle': 'password', 'id': 'password', 'name': 'password'}))
-
-#     remember_me = forms.BooleanField(required=False)
-
-#     class Meta:
-#         model = User
-#         fields = ['username', 'password', 'remember_me']

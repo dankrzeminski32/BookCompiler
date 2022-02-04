@@ -1,1 +1,98 @@
-{% extends "base.html" %} {% block content %} {% load static %} {% endblock %}
+{% extends "base.html" %} {% block content %} {% load static %}
+<!-- Page Content-->
+ <div class="container px-4 px-lg-5">
+    <!-- Heading Row-->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5 py-5">
+        <div class="col-lg-7">
+            <img
+                class="img-fluid rounded mb-4 mb-lg-0"
+                src="{% static 'abstract/images/bookshelf.jpg' %}"
+                alt="..."
+                style="height:450px;!important; width:900px;!important"
+            />
+        </div>
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">Compile your thoughts</h1>
+            <p class="">
+                Turn shelf help into self help and start using bookCompiler.
+                This application allows you to commit books to memory and truly
+                understand the content from start to finish.
+            </p>
+            <a class="btn btn-dark" href="{% url 'registerView' %}">Register now!</a>
+        </div>
+    </div>
+    <!-- Quote -->
+
+    <div class="card text-white bg-secondary my-5 py-2 text-center">
+        <div class="card-body">
+            <blockquote class="blockquote">
+            <p class="text-white m-0 ">
+                “The more that you read, the more things you will know. The more
+                that you learn, the more places you'll go.” <br />
+                <footer class="blockquote-footer text-white mt-2"> Dr. Seuss,
+                <cite>I Can Read With My Eyes Shut!</cite></footer></p>
+            </blockquote>
+        </div>
+    </div>
+    <!-- Cards-->
+<div class="mt-5 mb-5">
+    <div class="row gx-4 gx-lg-5">
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Purpose</h2>
+                    <p class="card-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Rem magni quas ex numquam, maxime minus quam
+                        molestias corporis quod, ea minima accusamus.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-primary btn-sm" href="#!">More Info</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Technical Support</h2>
+                    <p class="card-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Quod tenetur ex natus at dolorem enim! Nesciunt
+                        pariatur voluptatem sunt quam eaque, vel, non in id
+                        dolore voluptates quos eligendi labore.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-primary btn-sm" href="#!">More info</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Open Source</h2>
+                    <p class="card-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Rem magni quas ex numquam, maxime minus quam
+                        molestias corporis quod, ea minima accusamus.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-primary btn-sm" href="#!">More Info</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Footer-->
+<footer class="py-3 bg-dark">
+    <div class="container px-4 px-lg-5">
+        <p class="m-0 text-center text-white">
+            Copyright &copy; Daniel Krzeminski 2022
+        </p>
+    </div>
+</footer>
+<!-- Bootstrap core JS-->
+{% endblock %}
