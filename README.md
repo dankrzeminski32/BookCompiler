@@ -23,3 +23,4 @@ The purpose of this app is to help you compile all your thoughts after reading b
 -   [] wish list books
 -   -   [] quote styling, button styling, font styling
 -   [] database of quotes about books + arrows
+-   [] book recommendation machine learning
