@@ -41,3 +41,7 @@ def loginUser(request):
 def logoutUser(request):
     logout(request)
     return redirect('home')
+
+
+def userProfile(request):
+    return render(request, 'userManagement/profile.html')
