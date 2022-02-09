@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     path('',views.userView, name="dashboardView")
+
 ]
