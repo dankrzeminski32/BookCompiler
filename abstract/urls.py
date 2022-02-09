@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
+# Abstract will involve all of our links that serve no purpose but to inform users about the app
+# it is the top level abstraction of our entire software
 urlpatterns = [
     path('', views.home, name="home")
 ]
