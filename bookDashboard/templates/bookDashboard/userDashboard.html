@@ -1,1 +1,12 @@
-{% extends 'base.html' %} {% block content %} {{ user.username }} {% endblock %}
+{% extends 'base.html' %} {% block content %} {% load crispy_forms_tags %}
+<div class="d-flex justify-content-center p-5">
+<div class="w-50">
+<form class="bg-dark text-light p-5" action="{% url 'dashboardView' %}" method="post"
+    {% csrf_token %} {{ form|crispy }}
+    <input type="submit" class="btn btn-primary"/>
+</form>
+</div>
+</div>
+{{ user.username }} 
+
+{% endblock %}
