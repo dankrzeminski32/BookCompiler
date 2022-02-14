@@ -8,14 +8,15 @@ from .models import book
 
 
 def userView(request):
-    print(book.objects.filter(user__pk=request.user.id))
-   # context = {}
-  #  context['form'] = newBookForm()
+    print(book.objects.filter(user__id=request.user.id))
+    context = {}
     if request.method == "POST":
-        form = newBookForm(request.POST)
+        form = newBookForm(data=request.POST, user=request.user)
         if form.is_valid():
             form.save()
             return redirect('dashboardView')
     else:
         form = newBookForm()
-    return render(request, 'bookDashboard/userDashboard.html', {'form': form})
+        context['form'] = newBookForm()
+        context['userBooks'] = book.objects.filter(user_id=request.user.id)
+    return render(request, 'bookDashboard/userDashboard.html', context)
