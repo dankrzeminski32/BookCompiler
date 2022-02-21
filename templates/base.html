@@ -55,7 +55,9 @@
                     class="collapse navbar-collapse"
                     id="navbarSupportedContent"
                 >
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <ul
+                        class="d-flex navbar-nav ms-auto align-items-lg-center mb-2 mb-lg-0"
+                    >
                         <li class="nav-item">
                             <a
                                 class="nav-link active"
@@ -81,7 +83,7 @@
                                 </button>
                             </form>
                         </li>
-                        <li class="nav-item mb-2 mb-lg-0 mx-lg-3">
+                        <li class="nav-item mb-2 mb-lg-0 mr-lg-3">
                             <form
                                 action="{% url 'userProfile' %}"
                                 style="display: inline"
@@ -92,7 +94,7 @@
                             </form>
                         </li>
                         {% else %}
-                        <li class="nav-item mb-2 mb-lg-0 mx-lg-3">
+                        <li class="nav-item mb-2 mb-lg-0">
                             <form
                                 action="{% url 'registerView' %}"
                                 style="display: inline"
@@ -103,17 +105,14 @@
                             </form>
                         </li>
                         {% endif %}
-                        <li class="nav-item ml-lg-1">
+                        <li class="nav-item mx-lg-3">
                             {%if user.is_authenticated %}
                             <form
                                 action="{% url 'logoutView' %}"
                                 style="display: inline"
                             >
-                                <button
-                                    type="submit"
-                                    class="btn btn-outline-danger me-2"
-                                >
-                                    Logout
+                                <button type="submit" class="btn btn-danger">
+                                    <b> Logout </b>
                                 </button>
                             </form>
                             {% else %}
@@ -121,10 +120,7 @@
                                 action="{% url 'loginView' %}"
                                 style="display: inline"
                             >
-                                <button
-                                    type="submit"
-                                    class="btn btn-outline-success me-2"
-                                >
+                                <button type="submit" class="btn btn-success">
                                     Login
                                 </button>
                             </form>

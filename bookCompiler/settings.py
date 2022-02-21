@@ -132,3 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
 
+#Where files will be stored locally
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+#media url is how we access the url in the browser.
+MEDIA_URL = '/media/'

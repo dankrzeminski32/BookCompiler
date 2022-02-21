@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from bookDashboard.models import book
+from bookDashboard.models import Book
 
 class newBookForm(ModelForm):
     def __init__(self, **kwargs):
@@ -15,5 +15,5 @@ class newBookForm(ModelForm):
         return obj
 
     class Meta:
-        model = book
+        model = Book
         fields = ['title','complete']
