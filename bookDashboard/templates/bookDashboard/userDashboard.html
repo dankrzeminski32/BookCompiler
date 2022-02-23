@@ -1,4 +1,96 @@
 {% extends 'base.html' %} {% block content %} {% load crispy_forms_tags %}
+<div class="bg-secondary px-3 py-2">
+    <a
+        href="#myModal"
+        role="button"
+        class="btn btn-md btn-dark"
+        data-bs-toggle="modal"
+        >Add New Book +</a
+    >
+</div>
+<div id="myModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create a new book entry</h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                ></button>
+            </div>
+            <!--MODAL BODY-->
+            <div class="modal-body">
+                <form
+                    class="p-2"
+                    action="{% url 'dashboardView' %}"
+                    method="post"
+                    enctype="multipart/form-data"
+                >
+                    {% csrf_token %}
+                    <div class=" bg-light text-dark p-5">
+                    <div class="row">
+                        <div class="form-group col-md-6 mb-0 p-3">
+                            {{ form.title|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0 p-3">
+                            {{ form.author|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6 mb-0 p-1">
+                            {{ form.complete|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0 p-1">
+                            {{ form.image|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                    <!--<input type="submit" class="btn btn-primary" />-->
+
+                                <p>
+                    Do you want to save changes to this document before closing?
+                </p>
+                <p class="text-secondary">
+                    <small>If you don't save, your changes will be lost.</small>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >
+                    Cancel
+                </button>
+                <input type="submit" class="btn btn-primary">
+                </input>
+            </div>    
+                </form>
+                    <!--
+                <p>
+                    Do you want to save changes to this document before closing?
+                </p>
+                <p class="text-secondary">
+                    <small>If you don't save, your changes will be lost.</small>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >
+                    Cancel
+                </button>
+                <button type="button" class="btn btn-primary">
+                    Save changes
+                </button>
+            </div>-->
+        </div>
+    </div>
+</div>
+<!--
 <div class="d-flex justify-content-center p-5">
     <div class="w-50">
         <form
@@ -12,6 +104,7 @@
         </form>
     </div>
 </div>
+-->
 <div class="card-deck d-flex justify-content-around flex-wrap">
     {% for book in userBooks %}
 

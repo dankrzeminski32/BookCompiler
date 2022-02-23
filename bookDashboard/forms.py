@@ -7,6 +7,9 @@ class newBookForm(ModelForm):
         self.user = kwargs.pop('user', None)
         self.image = kwargs.pop('image', None)
         super(newBookForm, self).__init__(**kwargs)
+        self.fields['title'].required = True
+        self.fields['author'].required = True
+        self.fields['complete'].required = True
     
     def save(self, commit=True):
         obj = super(newBookForm,self).save(commit=False)
@@ -18,4 +21,4 @@ class newBookForm(ModelForm):
 
     class Meta:
         model = Book
-        fields = ['title','complete','image']
+        fields = ['title','author','complete','image']
