@@ -116,13 +116,14 @@
         />
         <div class="card-body">
             <h5 class="card-title">{{ book.title }}</h5>
-            <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+            <p class="card-text lead">
+                {{ book.author }}
             </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="{% url 'bookOverview' book.id %}" class="btn btn-warning">See Review</a>
         </div>
     </div>
+    {% empty %}
+    <h1 class="h1 text-center">404</h1>
     {% endfor %}
 </div>
 

@@ -20,3 +20,9 @@ def userView(request):
         context['form'] = newBookForm()
         context['userBooks'] = Book.objects.filter(user_id=request.user.id)
     return render(request, 'bookDashboard/userDashboard.html', context)
+
+def bookOverview(request, id):
+    context = {}
+    book = Book.objects.get(user_id=request.user.id, id=id)
+    context = {'book': book}
+    return render(request, 'bookDashboard/bookOverview.html', context = context)
