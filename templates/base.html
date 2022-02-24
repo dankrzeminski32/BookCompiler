@@ -14,6 +14,8 @@
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"
         />
+        {% block extra_head %}
+        {% endblock %}
         {% load static %}
         <title>{% block title %}Book Compiler{% endblock %}</title>
         <style>

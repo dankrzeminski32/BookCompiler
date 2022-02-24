@@ -1,6 +1,9 @@
-{% extends "base.html" %} {% block content %} {% load static %}
+{% extends "base.html" %} {% load static %}{% block content %} 
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'abstract/css/styles.css' %}">
+{% endblock %}
 <!-- Page Content-->
- <div class="container px-4 px-lg-5">
+ <div class="container px-4 px-lg-5">%
     <!-- Heading Row-->
     <div class="row gx-4 gx-lg-5 align-items-center my-5 py-5">
         <div class="col-lg-7">
