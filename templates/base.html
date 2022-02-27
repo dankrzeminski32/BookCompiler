@@ -14,9 +14,7 @@
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"
         />
-        {% block extra_head %}
-        {% endblock %}
-        {% load static %}
+        {% block extra_head %} {% endblock %} {% load static %}
         <title>{% block title %}Book Compiler{% endblock %}</title>
         <style>
             @import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap");
@@ -86,14 +84,33 @@
                             </form>
                         </li>
                         <li class="nav-item mb-2 mb-lg-0 mr-lg-3">
-                            <form
-                                action="{% url 'userProfile' %}"
-                                style="display: inline"
-                            >
-                                <button type="submit" class="btn btn-primary">
-                                    <b>{{ user.username }}</b>
+                            <div class="dropdown">
+                                <button
+                                    type="button"
+                                    class="btn btn-primary dropdown-toggle"
+                                    id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                >
+                                    {{ user.username }}
                                 </button>
-                            </form>
+                                <div
+                                    class="dropdown-menu"
+                                    aria-labelledby="dropdownMenuButton"
+                                >
+                                    <a
+                                        class="dropdown-item"
+                                        href="{% url 'userProfile' %}"
+                                        >My Profile</a
+                                    >
+                                    <a
+                                        class="dropdown-item"
+                                        href="{% url 'logoutView' %}"
+                                        >Logout</a
+                                    >
+                                </div>
+                            </div>
                         </li>
                         {% else %}
                         <li class="nav-item mb-2 mb-lg-0">
@@ -108,16 +125,7 @@
                         </li>
                         {% endif %}
                         <li class="nav-item mx-lg-3">
-                            {%if user.is_authenticated %}
-                            <form
-                                action="{% url 'logoutView' %}"
-                                style="display: inline"
-                            >
-                                <button type="submit" class="btn btn-danger">
-                                    <b> Logout </b>
-                                </button>
-                            </form>
-                            {% else %}
+                            {%if user.is_authenticated %} {% else %}
                             <form
                                 action="{% url 'loginView' %}"
                                 style="display: inline"
