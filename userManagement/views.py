@@ -47,7 +47,7 @@ def userProfile(request):
     args = {}
 
     if request.method == 'POST':
-        form = UpdateProfile(request.POST)
+        form = UpdateProfile(request.POST, instance=request.user)
         form.actual_user = request.user
         if form.is_valid():
             form.save()
