@@ -107,20 +107,20 @@
 -->
 <div class="card-deck d-flex justify-content-around flex-wrap">
     {% for book in userBooks %}
-
-    <div class="card my-3" style="width: 18rem">
+    <div class="col-sm-4 d-flex justify-content-center">
+    <div class="card rounded shadow-lg my-3" style="width: 18rem">
         <img
             class="card-img-top"
             src="{{ book.image.url }}"
             alt="Card image cap"
         />
         <div class="card-body">
-            <h5 class="card-title">{{ book.title }}</h5>
-            <p class="card-text lead">
+            <h5 class="card-title"><a href="{% url 'bookOverview' book.id %}">{{ book.title }}</a></h5>
+            <p class="card-text ">
                 {{ book.author }}
             </p>
-            <a href="{% url 'bookOverview' book.id %}" class="btn btn-warning">See Review</a>
         </div>
+    </div>
     </div>
     {% empty %}
     <h1 class="h1 text-center">404</h1>
