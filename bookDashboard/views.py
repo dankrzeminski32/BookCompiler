@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.http import HttpResponse
-from .forms import newBookForm
+from .forms import newBookForm, EditItemForm
 from django.shortcuts import redirect
 from .models import Book
 # Create your views here.
@@ -25,4 +25,5 @@ def bookOverview(request, id):
     context = {}
     book = Book.objects.get(user_id=request.user.id, id=id)
     context = {'book': book}
+    context['form'] = EditItemForm()
     return render(request, 'bookDashboard/bookOverview.html', context = context)

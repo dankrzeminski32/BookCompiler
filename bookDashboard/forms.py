@@ -1,8 +1,10 @@
 from django import forms
 from django.forms import ModelForm
 from bookDashboard.models import Book
+from django.core.files.images import get_image_dimensions
 
 class newBookForm(ModelForm):
+
     def __init__(self, **kwargs):
         self.user = kwargs.pop('user', None)
         self.image = kwargs.pop('image', None)
@@ -22,3 +24,8 @@ class newBookForm(ModelForm):
     class Meta:
         model = Book
         fields = ['title','author','complete','image']
+
+class EditItemForm(ModelForm):
+    class Meta:
+        model = Book
+        fields = '__all__'
