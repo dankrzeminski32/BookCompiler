@@ -25,5 +25,14 @@ def bookOverview(request, id):
     context = {}
     book = Book.objects.get(user_id=request.user.id, id=id)
     context = {'book': book}
-    context['form'] = EditItemForm()
+    initial_dict = {
+        "title": book.title,
+        "author": book.author,
+        "complete": book.title,
+        "image": book.image,
+        "first_point": book.first_point,
+        "second_point": book.second_point,
+        "third_point": book.third_point
+    }
+    context['form'] = EditItemForm(initial=initial_dict)
     return render(request, 'bookDashboard/bookOverview.html', context = context)

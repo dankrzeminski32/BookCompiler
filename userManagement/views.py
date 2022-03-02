@@ -45,16 +45,20 @@ def logoutUser(request):
 
 def userProfile(request):
     args = {}
+    instanceVariables = {
+        'username': request.user.username,
+        'email': request.user.email
+    }
 
     if request.method == 'POST':
         form = UpdateProfile(request.POST, instance=request.user)
-        form.actual_user = request.user
         if form.is_valid():
             form.save()
             return HttpResponse("Success")
     else:
-        form = UpdateProfile()
+        form = UpdateProfile(instanceVariables)
 
     args['form'] = form
     print(form)
     return render(request, 'userManagement/profile.html', args)
+    

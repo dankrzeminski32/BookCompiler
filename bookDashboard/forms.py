@@ -28,4 +28,4 @@ class newBookForm(ModelForm):
 class EditItemForm(ModelForm):
     class Meta:
         model = Book
-        fields = '__all__'
+        fields = ['title','author','complete','image','first_point','second_point','third_point']
