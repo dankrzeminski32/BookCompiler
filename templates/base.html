@@ -14,24 +14,10 @@
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"
         />
-        {% block extra_head %} {% endblock %} {% load static %}
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'BookCompiler/css/styles.css' %}">
+        {% block extra_head %} {% endblock %} 
         <title>{% block title %}Book Compiler{% endblock %}</title>
-        <style>
-            @import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap");
-
-            body {
-                background-color: #fbfbfb;
-            }
-
-            #logo {
-                font-family: "Mochiy Pop P One", sans-serif;
-                color: #fbfbfb;
-                font-size: 2rem;
-            }
-            a {
-                text-decoration: none;
-            }
-        </style>
     </head>
     <body>
         <!-- Responsive navbar-->

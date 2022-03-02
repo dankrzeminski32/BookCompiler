@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from .forms import newBookForm, EditItemForm
 from django.shortcuts import redirect
 from .models import Book
+from django.http import HttpResponseForbidden
 # Create your views here.
 
 
@@ -24,14 +25,20 @@ def userView(request):
 def bookOverview(request, id):
     context = {}
     book = Book.objects.get(user_id=request.user.id, id=id)
+    if request.user != book.user:
+        return HttpResponseForbidden()
+
     context = {'book': book}
     initial_dict = {
         "title": book.title,
         "author": book.author,
         "complete": book.title,
         "image": book.image,
+        "first_point_title": book.first_point_title,
         "first_point": book.first_point,
+        "second_point_title": book.second_point_title,
         "second_point": book.second_point,
+        "third_point_title": book.first_point_title,
         "third_point": book.third_point
     }
     context['form'] = EditItemForm(initial=initial_dict)
